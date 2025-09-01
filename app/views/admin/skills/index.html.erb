@@ -1,0 +1,52 @@
+<div class="max-w-7xl mx-auto">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">スキル管理</h1>
+    <%= link_to '新規作成', new_admin_skill_path, class: 'btn-primary' %>
+  </div>
+
+  <div class="table">
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <th>アイコン</th>
+          <th>スキル名</th>
+          <th>カテゴリ</th>
+          <th>説明</th>
+          <th>熟練度</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @skills.each do |skill| %>
+          <tr>
+            <td>
+              <span class="text-2xl"><%= skill.icon %></span>
+            </td>
+            <td>
+              <div class="text-sm font-medium text-gray-900"><%= skill.name %></div>
+            </td>
+            <td>
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <%= skill.category %>
+              </span>
+            </td>
+            <td>
+              <div class="text-sm text-gray-900"><%= truncate(skill.description, length: 100) %></div>
+            </td>
+            <td>
+              <div class="text-yellow-500 text-lg">
+                <%= skill.proficiency_stars %>
+              </div>
+              <div class="text-xs text-gray-500">レベル <%= skill.proficiency %></div>
+            </td>
+            <td class="text-sm font-medium">
+              <%= link_to '表示', admin_skill_path(skill), class: 'text-blue-600 hover:text-blue-900 mr-3' %>
+              <%= link_to '編集', edit_admin_skill_path(skill), class: 'text-green-600 hover:text-green-900 mr-3' %>
+              <%= link_to '削除', admin_skill_path(skill), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'text-red-600 hover:text-red-900' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

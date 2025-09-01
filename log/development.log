@@ -1,0 +1,809 @@
+  [1m[35m (168.7ms)[0m  [1m[35mCREATE DATABASE "fukumoto_portofolio_development" ENCODING = 'unicode'[0m
+  [1m[35m (50.6ms)[0m  [1m[35mCREATE DATABASE "fukumoto_portofolio_test" ENCODING = 'unicode'[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7176455349551063625)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-08-29 14:49:12.341931', '2025-08-29 14:49:12.341934') RETURNING "key"[0m
+Migrating to CreateProjects (20250829144859)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "title" character varying, "description" text, "image_url" character varying, "github_url" character varying, "live_url" character varying, "technologies" text, "category" character varying, "featured" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250829144859') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSkills (20250829144906)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "skills" ("id" bigserial primary key, "name" character varying, "description" text, "category" character varying, "proficiency" integer, "icon" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250829144906') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7176455349551063625)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."title" = $1 LIMIT $2[0m  [["title", "FirstApp — RailsのMVCフレームワークを意識したメモ投稿アプリ"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (3.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "github_url", "live_url", "technologies", "category", "featured", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "FirstApp — RailsのMVCフレームワークを意識したメモ投稿アプリ"], ["description", "コントローラ・モデル・ビューの責務分離 / メモCRUD"], ["image_url", "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60"], ["github_url", "https://github.com/taiyifuyuan2/first_app"], ["live_url", ""], ["technologies", "Rails, MVC, CRUD, HTML, CSS"], ["category", "Rails"], ["featured", true], ["created_at", "2025-08-29 14:51:42.314573"], ["updated_at", "2025-08-29 14:51:42.314573"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."title" = $1 LIMIT $2[0m  [["title", "PicTweet — Gemを用いたX風の写真投稿アプリ"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "github_url", "live_url", "technologies", "category", "featured", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "PicTweet — Gemを用いたX風の写真投稿アプリ"], ["description", "CRUD / 画像投稿 / Gem活用（バリデーション・ページネーション等）"], ["image_url", "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60"], ["github_url", ""], ["live_url", ""], ["technologies", "Rails, Gem, 画像投稿, バリデーション, ページネーション"], ["category", "Rails"], ["featured", true], ["created_at", "2025-08-29 14:51:42.320293"], ["updated_at", "2025-08-29 14:51:42.320293"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."title" = $1 LIMIT $2[0m  [["title", "ChatApp — 多対多設計とActiveStorageで画像投稿に対応"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "github_url", "live_url", "technologies", "category", "featured", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "ChatApp — 多対多設計とActiveStorageで画像投稿に対応"], ["description", "ユーザー×ルームの多対多 / 画像アップロード（ActiveStorage）"], ["image_url", "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1200&q=60"], ["github_url", "https://github.com/taiyifuyuan2/chat-app"], ["live_url", ""], ["technologies", "Rails, 多対多, ActiveStorage, 画像アップロード"], ["category", "Rails"], ["featured", true], ["created_at", "2025-08-29 14:51:42.322085"], ["updated_at", "2025-08-29 14:51:42.322085"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."title" = $1 LIMIT $2[0m  [["title", "AjaxApp — FirstAppを非同期通信化したメモ投稿アプリ"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "github_url", "live_url", "technologies", "category", "featured", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "AjaxApp — FirstAppを非同期通信化したメモ投稿アプリ"], ["description", "非同期投稿 / スムーズなUX / 局所的なDOM更新"], ["image_url", "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60"], ["github_url", "https://github.com/taiyifuyuan2/ajax_app_rails7"], ["live_url", ""], ["technologies", "Rails, Ajax, 非同期通信, JavaScript"], ["category", "Rails"], ["featured", true], ["created_at", "2025-08-29 14:51:42.323857"], ["updated_at", "2025-08-29 14:51:42.323857"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."title" = $1 LIMIT $2[0m  [["title", "ProtoSpace — これまでの復習を兼ねたコンテンツ投稿アプリ"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "github_url", "live_url", "technologies", "category", "featured", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "ProtoSpace — これまでの復習を兼ねたコンテンツ投稿アプリ"], ["description", "投稿CRUD / バリデーション / 一覧・詳細ビュー"], ["image_url", "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60"], ["github_url", "https://github.com/taiyifuyuan2/protospace-46285"], ["live_url", ""], ["technologies", "Rails, CRUD, バリデーション, 投稿システム"], ["category", "Rails"], ["featured", true], ["created_at", "2025-08-29 14:51:42.325553"], ["updated_at", "2025-08-29 14:51:42.325553"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."title" = $1 LIMIT $2[0m  [["title", "FURIMA — 出品・表示・編集・削除・購入に対応するフリマアプリ"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "github_url", "live_url", "technologies", "category", "featured", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "FURIMA — 出品・表示・編集・削除・購入に対応するフリマアプリ"], ["description", "商品CRUD / 購入フロー / 基本的なEC体験"], ["image_url", "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1200&q=60"], ["github_url", "https://github.com/taiyifuyuan2/furima-46285"], ["live_url", ""], ["technologies", "Rails, EC, 商品管理, 購入フロー"], ["category", "Rails"], ["featured", true], ["created_at", "2025-08-29 14:51:42.327454"], ["updated_at", "2025-08-29 14:51:42.327454"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."name" = $1 LIMIT $2[0m  [["name", "Ruby on Rails"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (1.1ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "category", "proficiency", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ruby on Rails"], ["description", "CRUD / 認証 / Renderデプロイ"], ["category", "Backend"], ["proficiency", 5], ["icon", "🚀"], ["created_at", "2025-08-29 14:51:42.335645"], ["updated_at", "2025-08-29 14:51:42.335645"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."name" = $1 LIMIT $2[0m  [["name", "HTML / CSS"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "category", "proficiency", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "HTML / CSS"], ["description", "セマンティクス / レイアウト"], ["category", "Frontend"], ["proficiency", 4], ["icon", "🎨"], ["created_at", "2025-08-29 14:51:42.338359"], ["updated_at", "2025-08-29 14:51:42.338359"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."name" = $1 LIMIT $2[0m  [["name", "JavaScript"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "category", "proficiency", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "JavaScript"], ["description", "動的UI"], ["category", "Frontend"], ["proficiency", 4], ["icon", "⚡"], ["created_at", "2025-08-29 14:51:42.340184"], ["updated_at", "2025-08-29 14:51:42.340184"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."name" = $1 LIMIT $2[0m  [["name", "MySQL"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.5ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "category", "proficiency", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "MySQL"], ["description", "正規化 / インデックス"], ["category", "Database"], ["proficiency", 4], ["icon", "🗄️"], ["created_at", "2025-08-29 14:51:42.341991"], ["updated_at", "2025-08-29 14:51:42.341991"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."name" = $1 LIMIT $2[0m  [["name", "GitHub"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.8ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "category", "proficiency", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "GitHub"], ["description", "PR駆動 / Actions"], ["category", "Tools"], ["proficiency", 5], ["icon", "📚"], ["created_at", "2025-08-29 14:51:42.343654"], ["updated_at", "2025-08-29 14:51:42.343654"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."name" = $1 LIMIT $2[0m  [["name", "Design"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSkill Create (0.6ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "category", "proficiency", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Design"], ["description", "世界観設計 / 色設計"], ["category", "Creative"], ["proficiency", 5], ["icon", "✨"], ["created_at", "2025-08-29 14:51:42.348982"], ["updated_at", "2025-08-29 14:51:42.348982"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  [1m[36mSkill Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "skills"[0m
+Started GET "/" for ::1 at 2025-08-29 23:55:19 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 37.1ms | Allocations: 26212)
+  Rendered layout layouts/application.html.erb (Duration: 148.0ms | Allocations: 116353)
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 14.9ms | Allocations: 124022)
+
+
+  
+ActionView::Template::Error (The asset "inter-font.css" is not present in the asset pipeline.
+):
+    21:     <%= csrf_meta_tags %>
+    22:     <%= csp_meta_tag %>
+    23: 
+    24:     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    25:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    26:     <%= javascript_importmap_tags %>
+    27:   </head>
+  
+app/views/layouts/application.html.erb:24
+Started GET "/" for ::1 at 2025-08-29 23:56:11 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 39.8ms | Allocations: 11585)
+  Rendered layout layouts/application.html.erb (Duration: 51.7ms | Allocations: 36045)
+Completed 200 OK in 53ms (Views: 30.8ms | ActiveRecord: 21.9ms | Allocations: 36989)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:56:15 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/projects/index.html.erb within layouts/application
+  [1m[36mProject Load (2.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:26
+  Rendered admin/projects/index.html.erb within layouts/application (Duration: 23.7ms | Allocations: 5658)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 7327)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 2.3ms | Allocations: 7955)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:56:33 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:26
+  Rendered admin/projects/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2369)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 4025)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.9ms | Allocations: 4307)
+
+
+Started GET "/admin/projects/new" for ::1 at 2025-08-29 23:56:35 +0900
+Processing by Admin::ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admin/projects/new.html.erb within layouts/application
+  Rendered admin/projects/new.html.erb within layouts/application (Duration: 16.8ms | Allocations: 4888)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 6543)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 6909)
+
+
+Started GET "/admin/projects/new" for ::1 at 2025-08-29 23:57:51 +0900
+Processing by Admin::ProjectsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/new.html.erb within layouts/admin
+  Rendered admin/projects/new.html.erb within layouts/admin (Duration: 4.1ms | Allocations: 2646)
+  Rendered layout layouts/admin.html.erb (Duration: 12.8ms | Allocations: 25458)
+Completed 200 OK in 48ms (Views: 13.8ms | ActiveRecord: 15.0ms | Allocations: 31536)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:57:59 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (2.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:26
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 8.8ms | Allocations: 6742)
+  Rendered layout layouts/admin.html.erb (Duration: 17.5ms | Allocations: 29338)
+Completed 200 OK in 24ms (Views: 13.1ms | ActiveRecord: 7.7ms | Allocations: 31748)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:58:03 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.6ms | Allocations: 95)
+  Rendered layout layouts/admin.html.erb (Duration: 4.8ms | Allocations: 2756)
+Completed 200 OK in 12ms (Views: 5.6ms | ActiveRecord: 1.3ms | Allocations: 4308)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:58:04 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 5265)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 8062)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 4.0ms | Allocations: 8572)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:58:20 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 11503)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 34819)
+Completed 200 OK in 25ms (Views: 15.1ms | ActiveRecord: 9.5ms | Allocations: 35723)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:58:23 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 18.0ms | Allocations: 1726)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 4271)
+Completed 200 OK in 25ms (Views: 20.0ms | ActiveRecord: 4.4ms | Allocations: 4509)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:58:30 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:26
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 5.7ms | Allocations: 3001)
+  Rendered layout layouts/admin.html.erb (Duration: 9.6ms | Allocations: 5280)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 1.3ms | Allocations: 5811)
+
+
+Started GET "/admin/projects/new" for ::1 at 2025-08-29 23:58:32 +0900
+Processing by Admin::ProjectsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/new.html.erb within layouts/admin
+  Rendered admin/projects/new.html.erb within layouts/admin (Duration: 4.2ms | Allocations: 2581)
+  Rendered layout layouts/admin.html.erb (Duration: 15.2ms | Allocations: 4324)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 4638)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:58:39 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.2ms | Allocations: 101)
+  Rendered layout layouts/admin.html.erb (Duration: 8.0ms | Allocations: 23840)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 2.0ms | Allocations: 26061)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:58:39 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (1.0ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 29.9ms | Allocations: 10270)
+  Rendered layout layouts/application.html.erb (Duration: 33.4ms | Allocations: 13051)
+Completed 200 OK in 37ms (Views: 22.9ms | ActiveRecord: 12.0ms | Allocations: 13561)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:58:43 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/admin.html.erb (Duration: 6.9ms | Allocations: 2655)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 2908)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:58:54 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 7.5ms | Allocations: 5824)
+  Rendered layout layouts/admin.html.erb (Duration: 17.5ms | Allocations: 29529)
+Completed 200 OK in 24ms (Views: 15.3ms | ActiveRecord: 5.6ms | Allocations: 31941)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:58:55 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 93)
+  Rendered layout layouts/admin.html.erb (Duration: 4.0ms | Allocations: 2748)
+Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 1.0ms | Allocations: 4294)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:58:55 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 5199)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7976)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 3.1ms | Allocations: 8485)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:58:57 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 1723)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 4258)
+Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 3.8ms | Allocations: 4496)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:58:58 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/admin.html.erb (Duration: 3.8ms | Allocations: 2667)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 2920)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:58:59 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 6.3ms | Allocations: 5813)
+  Rendered layout layouts/admin.html.erb (Duration: 12.9ms | Allocations: 29510)
+Completed 200 OK in 18ms (Views: 9.9ms | ActiveRecord: 6.3ms | Allocations: 31922)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:59:04 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 3.1ms | Allocations: 1465)
+  Rendered layout layouts/admin.html.erb (Duration: 7.6ms | Allocations: 4090)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.5ms | Allocations: 4349)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:59:05 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.4ms | Allocations: 93)
+  Rendered layout layouts/admin.html.erb (Duration: 3.6ms | Allocations: 2742)
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 1.9ms | Allocations: 4289)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:59:13 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.2ms | Allocations: 97)
+  Rendered layout layouts/admin.html.erb (Duration: 16.7ms | Allocations: 23876)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 1.9ms | Allocations: 26093)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:59:14 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 10274)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 13057)
+Completed 200 OK in 22ms (Views: 12.5ms | ActiveRecord: 8.9ms | Allocations: 13566)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:59:18 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1723)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4270)
+Completed 200 OK in 20ms (Views: 12.9ms | ActiveRecord: 1.3ms | Allocations: 4508)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:59:26 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (2.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 6.9ms | Allocations: 2020)
+  Rendered layout layouts/admin.html.erb (Duration: 10.2ms | Allocations: 4655)
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 2.7ms | Allocations: 5127)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:59:27 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/admin.html.erb (Duration: 2.5ms | Allocations: 2647)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 2900)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-29 23:59:28 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 3.7ms | Allocations: 1465)
+  Rendered layout layouts/admin.html.erb (Duration: 8.7ms | Allocations: 4092)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.6ms | Allocations: 4351)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:59:29 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1723)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 4270)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 1.1ms | Allocations: 4509)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:59:40 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/admin.html.erb (Duration: 8.2ms | Allocations: 2652)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 2905)
+
+
+Started GET "/" for ::1 at 2025-08-29 23:59:40 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1723)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4297)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 1.3ms | Allocations: 4535)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-29 23:59:40 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/admin.html.erb (Duration: 3.8ms | Allocations: 2640)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 2893)
+
+
+Started GET "/" for ::1 at 2025-08-30 00:02:29 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 35.1ms | Allocations: 11564)
+  Rendered layout layouts/application.html.erb (Duration: 47.4ms | Allocations: 34869)
+Completed 200 OK in 49ms (Views: 26.1ms | ActiveRecord: 22.4ms | Allocations: 35773)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-30 00:03:32 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (2.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 6.9ms | Allocations: 2035)
+  Rendered layout layouts/admin.html.erb (Duration: 11.6ms | Allocations: 5205)
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 2.1ms | Allocations: 5737)
+
+
+Started GET "/admin/projects/new" for ::1 at 2025-08-30 00:03:34 +0900
+Processing by Admin::ProjectsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/new.html.erb within layouts/admin
+  Rendered admin/projects/new.html.erb within layouts/admin (Duration: 5.7ms | Allocations: 2562)
+  Rendered layout layouts/admin.html.erb (Duration: 8.8ms | Allocations: 4292)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4605)
+
+
+Started GET "/admin/projects/new" for ::1 at 2025-08-30 00:03:37 +0900
+Processing by Admin::ProjectsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/new.html.erb within layouts/admin
+  Rendered admin/projects/new.html.erb within layouts/admin (Duration: 2.9ms | Allocations: 1859)
+  Rendered layout layouts/admin.html.erb (Duration: 5.4ms | Allocations: 3589)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 3830)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:03:38 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (4.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 14.5ms | Allocations: 1589)
+  Rendered layout layouts/admin.html.erb (Duration: 17.4ms | Allocations: 4220)
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 4.9ms | Allocations: 4699)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:03:43 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 2.3ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 4.5ms | Allocations: 3818)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 4071)
+
+
+Started GET "/admin/skills/1/edit" for ::1 at 2025-08-30 00:03:45 +0900
+Processing by Admin::SkillsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/edit.html.erb within layouts/admin
+  Rendered admin/skills/edit.html.erb within layouts/admin (Duration: 5.6ms | Allocations: 2600)
+  Rendered layout layouts/admin.html.erb (Duration: 7.4ms | Allocations: 4337)
+Completed 200 OK in 19ms (Views: 7.8ms | ActiveRecord: 2.6ms | Allocations: 6916)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:03:50 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 2.9ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 6.5ms | Allocations: 3839)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.7ms | Allocations: 4092)
+
+
+Started PATCH "/admin/skills/1" for ::1 at 2025-08-30 00:03:51 +0900
+Processing by Admin::SkillsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "skill"=>{"name"=>"Ruby on Rails", "description"=>"CRUD / 認証 / Renderデプロイ", "category"=>"Backend", "proficiency"=>"3", "icon"=>"🚀"}, "commit"=>"更新", "id"=>"1"}
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+  [1m[36mSkill Update (11.3ms)[0m  [1m[33mUPDATE "skills" SET "proficiency" = $1, "updated_at" = $2 WHERE "skills"."id" = $3[0m  [["proficiency", 3], ["updated_at", "2025-08-29 15:03:51.648609"], ["id", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+Redirected to http://localhost:3000/admin/skills
+Completed 302 Found in 22ms (ActiveRecord: 14.6ms | Allocations: 4625)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:03:51 +0900
+Processing by Admin::SkillsController#index as TURBO_STREAM
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 1.5ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 3.2ms | Allocations: 3861)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 4160)
+
+
+Started GET "/admin/skills/4/edit" for ::1 at 2025-08-30 00:04:00 +0900
+Processing by Admin::SkillsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/edit.html.erb within layouts/admin
+  Rendered admin/skills/edit.html.erb within layouts/admin (Duration: 2.7ms | Allocations: 1636)
+  Rendered layout layouts/admin.html.erb (Duration: 5.3ms | Allocations: 3363)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 4020)
+
+
+Started GET "/admin/skills/4/edit" for ::1 at 2025-08-30 00:04:00 +0900
+Processing by Admin::SkillsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/edit.html.erb within layouts/admin
+  Rendered admin/skills/edit.html.erb within layouts/admin (Duration: 1.6ms | Allocations: 1636)
+  Rendered layout layouts/admin.html.erb (Duration: 6.8ms | Allocations: 3362)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 4020)
+
+
+Started PATCH "/admin/skills/4" for ::1 at 2025-08-30 00:04:06 +0900
+Processing by Admin::SkillsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "skill"=>{"name"=>"MySQL", "description"=>"正規化 / インデックス", "category"=>"Database", "proficiency"=>"3", "icon"=>"🗄️"}, "commit"=>"更新", "id"=>"4"}
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+  [1m[36mSkill Update (1.6ms)[0m  [1m[33mUPDATE "skills" SET "proficiency" = $1, "updated_at" = $2 WHERE "skills"."id" = $3[0m  [["proficiency", 3], ["updated_at", "2025-08-29 15:04:06.070567"], ["id", 4]]
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+Redirected to http://localhost:3000/admin/skills
+Completed 302 Found in 11ms (ActiveRecord: 4.5ms | Allocations: 3147)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:04:06 +0900
+Processing by Admin::SkillsController#index as TURBO_STREAM
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 1.6ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 4.2ms | Allocations: 3846)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms | Allocations: 4102)
+
+
+Started GET "/admin/skills/2/edit" for ::1 at 2025-08-30 00:04:12 +0900
+Processing by Admin::SkillsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/edit.html.erb within layouts/admin
+  Rendered admin/skills/edit.html.erb within layouts/admin (Duration: 4.5ms | Allocations: 1633)
+  Rendered layout layouts/admin.html.erb (Duration: 7.1ms | Allocations: 3359)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 0.4ms | Allocations: 4018)
+
+
+Started GET "/admin/skills/3/edit" for ::1 at 2025-08-30 00:04:14 +0900
+Processing by Admin::SkillsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/edit.html.erb within layouts/admin
+  Rendered admin/skills/edit.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 1638)
+  Rendered layout layouts/admin.html.erb (Duration: 2.0ms | Allocations: 3364)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 4021)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:04:16 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 2.9ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 6.3ms | Allocations: 3811)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.7ms | Allocations: 4064)
+
+
+Started PATCH "/admin/skills/3" for ::1 at 2025-08-30 00:04:17 +0900
+Processing by Admin::SkillsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "skill"=>{"name"=>"JavaScript", "description"=>"動的UI", "category"=>"Frontend", "proficiency"=>"3", "icon"=>"⚡"}, "commit"=>"更新", "id"=>"3"}
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/admin/skills_controller.rb:44:in `set_skill'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+  [1m[36mSkill Update (1.2ms)[0m  [1m[33mUPDATE "skills" SET "proficiency" = $1, "updated_at" = $2 WHERE "skills"."id" = $3[0m  [["proficiency", 3], ["updated_at", "2025-08-29 15:04:17.165716"], ["id", 3]]
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/skills_controller.rb:29:in `update'
+Redirected to http://localhost:3000/admin/skills
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms | Allocations: 3140)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:04:17 +0900
+Processing by Admin::SkillsController#index as TURBO_STREAM
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 1.7ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 3.8ms | Allocations: 3855)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 4111)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-30 00:04:35 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 17.5ms | Allocations: 1465)
+  Rendered layout layouts/admin.html.erb (Duration: 26.4ms | Allocations: 4133)
+Completed 200 OK in 30ms (Views: 25.6ms | ActiveRecord: 1.8ms | Allocations: 4393)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:04:36 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.9ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 5.0ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 9.6ms | Allocations: 3832)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.9ms | Allocations: 4085)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-30 00:04:37 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 3.4ms | Allocations: 1465)
+  Rendered layout layouts/admin.html.erb (Duration: 7.0ms | Allocations: 4096)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.7ms | Allocations: 4355)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:04:38 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (0.8ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 3.6ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 7.4ms | Allocations: 3838)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.8ms | Allocations: 4091)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-30 00:04:40 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 1.7ms | Allocations: 1465)
+  Rendered layout layouts/admin.html.erb (Duration: 2.9ms | Allocations: 4079)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.6ms | Allocations: 4338)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-30 00:04:49 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 3.7ms | Allocations: 1465)
+  Rendered layout layouts/admin.html.erb (Duration: 7.8ms | Allocations: 4085)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 1.6ms | Allocations: 4344)
+
+
+Started GET "/admin/skills" for ::1 at 2025-08-30 00:04:56 +0900
+Processing by Admin::SkillsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/skills/index.html.erb within layouts/admin
+  [1m[36mSkill Load (1.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" ORDER BY "skills"."category" ASC, "skills"."name" ASC[0m
+  ↳ app/views/admin/skills/index.html.erb:20
+  Rendered admin/skills/index.html.erb within layouts/admin (Duration: 4.8ms | Allocations: 1206)
+  Rendered layout layouts/admin.html.erb (Duration: 10.3ms | Allocations: 3832)
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 1.6ms | Allocations: 4085)
+
+
+Started GET "/" for ::1 at 2025-08-30 00:04:56 +0900
+Processing by PortfolioController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering portfolio/index.html.erb within layouts/application
+  [1m[36mProject Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:44
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/portfolio/index.html.erb:46
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  ↳ app/views/portfolio/index.html.erb:70
+  Rendered portfolio/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1723)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4264)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 2.9ms | Allocations: 4502)
+
+
+Started GET "/admin/projects" for ::1 at 2025-08-30 00:06:51 +0900
+Processing by Admin::ProjectsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (19.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/admin/projects/index.html.erb:20
+  Rendered admin/projects/index.html.erb within layouts/admin (Duration: 27.5ms | Allocations: 1465)
+  Rendered layout layouts/admin.html.erb (Duration: 33.7ms | Allocations: 4091)
+Completed 200 OK in 40ms (Views: 15.7ms | ActiveRecord: 19.7ms | Allocations: 4350)
+
+

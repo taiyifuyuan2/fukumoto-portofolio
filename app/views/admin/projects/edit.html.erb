@@ -1,0 +1,63 @@
+<div class="max-w-4xl mx-auto">
+  <div class="bg-white rounded-lg shadow-lg p-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">プロジェクト編集</h1>
+
+    <%= form_with(model: [:admin, @project], local: true, class: "space-y-6") do |form| %>
+      <% if @project.errors.any? %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+          <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+          <ul>
+            <% @project.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form.label :title, "タイトル", class: "form-label" %>
+        <%= form.text_field :title, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :description, "説明", class: "form-label" %>
+        <%= form.text_area :description, rows: 4, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :image_url, "画像URL", class: "form-label" %>
+        <%= form.text_field :image_url, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :github_url, "GitHub URL", class: "form-label" %>
+        <%= form.text_field :github_url, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :live_url, "ライブURL", class: "form-label" %>
+        <%= form.text_field :live_url, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :technologies, "技術（カンマ区切り）", class: "form-label" %>
+        <%= form.text_field :technologies, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :category, "カテゴリ", class: "form-label" %>
+        <%= form.select :category, ['Rails', 'JavaScript', 'React', 'Vue', 'Python', 'Other'], {}, class: "form-input" %>
+      </div>
+
+      <div class="flex items-center">
+        <%= form.check_box :featured, class: "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" %>
+        <%= form.label :featured, "お気に入り", class: "ml-2 block text-sm text-gray-900" %>
+      </div>
+
+      <div class="flex justify-end space-x-4 pt-6">
+        <%= link_to '戻る', admin_projects_path, class: "btn-secondary" %>
+        <%= form.submit "更新", class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

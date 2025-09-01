@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>管理画面 - Code Grimoire</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    
+    <style>
+      /* 管理画面専用のスタイル */
+      body {
+        background-color: #f8fafc;
+        color: #1e293b;
+        font-family: 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+      }
+      
+      .admin-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      
+      .admin-nav {
+        background: white;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 0.5rem 0;
+      }
+      
+      .admin-nav a {
+        color: #64748b;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        transition: all 0.2s;
+      }
+      
+      .admin-nav a:hover {
+        color: #1e293b;
+        background-color: #f1f5f9;
+      }
+      
+      .admin-nav a.active {
+        color: #667eea;
+        background-color: #eff6ff;
+        font-weight: 500;
+      }
+      
+      .form-input {
+        background-color: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        width: 100%;
+        color: #1e293b;
+        transition: border-color 0.2s;
+      }
+      
+      .form-input:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+      
+      .form-label {
+        color: #374151;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      
+      .btn-primary {
+        background-color: #667eea;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      
+      .btn-primary:hover {
+        background-color: #5a67d8;
+      }
+      
+      .btn-secondary {
+        background-color: #6b7280;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      
+      .btn-secondary:hover {
+        background-color: #4b5563;
+      }
+      
+      .table {
+        background: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      }
+      
+      .table th {
+        background-color: #f8fafc;
+        color: #374151;
+        font-weight: 600;
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      
+      .table td {
+        padding: 1rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      
+      .table tr:hover {
+        background-color: #f8fafc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="admin-header">
+      <div class="container mx-auto px-4">
+        <h1 class="text-2xl font-bold">Code Grimoire 管理画面</h1>
+        <p class="text-blue-100">ポートフォリオサイトの管理</p>
+      </div>
+    </header>
+    
+    <nav class="admin-nav">
+      <div class="container mx-auto px-4">
+        <div class="flex space-x-4">
+          <%= link_to 'プロジェクト管理', admin_projects_path, class: request.path.start_with?('/admin/projects') ? 'active' : '' %>
+          <%= link_to 'スキル管理', admin_skills_path, class: request.path.start_with?('/admin/skills') ? 'active' : '' %>
+          <%= link_to 'ポートフォリオ', root_path, class: '' %>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+      <% if notice %>
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+          <%= notice %>
+        </div>
+      <% end %>
+      
+      <% if alert %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+          <%= alert %>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+    </main>
+  </body>
+</html>

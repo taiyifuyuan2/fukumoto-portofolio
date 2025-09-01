@@ -1,0 +1,99 @@
+<a href="#main" class="skip" style="position:absolute;left:-9999px;top:auto"><span>本文へスキップ</span></a>
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<nav class="nav" role="navigation" aria-label="メインナビゲーション">
+  <div class="nav-inner">
+    <div class="brand">Code <span>Grimoire</span></div>
+    <div class="spacer"></div>
+    <a href="#prologue">Prologue</a>
+    <a href="#projects">Projects</a>
+    <a href="#arsenal">Arsenal</a>
+    <a href="#contact">Contact</a>
+    <a href="/admin/projects" target="_blank" class="admin-link">管理画面</a>
+  </div>
+</nav>
+
+<main id="main">
+  <section class="hero hero--impact">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="portal" aria-hidden="true">
+      <span class="ring"></span>
+      <span class="glow"></span>
+    </div>
+    <div class="inner container" data-reveal>
+      <h1><span class="em">闇に鍛える物語</span><br/>福元太一のポートフォリオ</h1>
+      <p id="typewriter" data-text="営業という人の世界から、コードという魔導の世界へ。ダークファンタジーの扉を開く作品群をお届けします。"></p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">作品を見る</a>
+        <a class="btn" href="#contact">連絡する</a>
+      </div>
+    </div>
+    <div class="scroll" aria-hidden="true">
+      <div class="mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <section id="prologue" class="section container" data-reveal>
+    <h2>📜 Prologue</h2>
+    <p class="lead">営業 × 顧客理解を基盤に、Rails/JSで<strong>世界観のあるUI</strong>を設計・実装。<br/>「伝える力 × 作る力」で、最短で価値に到達するプロトタイプを作ります。</p>
+  </section>
+
+  <section id="projects" class="section container">
+    <h2>🏰 Projects</h2>
+    <p class="lead">学習アウトプットを中心に、Railsとフロントの基礎を鍛えた<%= Project.count %>作。</p>
+    <div class="grid">
+      <% Project.all.each do |project| %>
+        <article class="card" data-reveal>
+          <div class="thumb" style="background-image:url('<%= project.image_url %>')"></div>
+          <div class="content">
+            <span class="tag"><%= project.category %> / <%= project.technologies_array.first %></span>
+            <div class="title"><%= project.title %></div>
+            <p class="meta"><%= project.description %></p>
+            <div class="actions">
+              <% if project.github_url.present? %>
+                <a class="btn" href="<%= project.github_url %>" target="_blank" rel="noopener">GitHub</a>
+              <% end %>
+              <% if project.live_url.present? %>
+                <a class="btn" href="<%= project.live_url %>" target="_blank" rel="noopener">Live</a>
+              <% end %>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </section>
+
+  <section id="arsenal" class="section container">
+    <h2>⚔️ Arsenal</h2>
+    <div class="skills" data-reveal>
+      <% Skill.all.each do |skill| %>
+        <div class="skill">
+          <strong><%= skill.icon %> <%= skill.name %></strong> 
+          <%= skill.description %>
+          <div class="proficiency mt-2 text-yellow-500">
+            <%= skill.proficiency_stars %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <section id="contact" class="section container" data-reveal>
+    <h2>🕯 Contact</h2>
+    <p class="lead">旅路の仲間を募集中です。気軽に声をかけてください。</p>
+    <div class="skills">
+      <div class="skill">
+        <strong>Mail</strong> <a href="mailto:taiyifuyuan2@gmail.com">taiyifuyuan2@gmail.com</a>
+      </div>
+      <div class="skill">
+        <strong>X</strong> <a href="https://x.com/i_nv99" target="_blank" rel="noopener">@i_nv99</a>
+      </div>
+      <div class="skill">
+        <strong>Note</strong> <a href="https://note.com/human_quoll6139" target="_blank" rel="noopener">note.com/human_quoll6139</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container">© <span id="year"></span> 福元太一. Forged in the dark.</footer>
+</main>

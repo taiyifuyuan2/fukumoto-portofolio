@@ -1,0 +1,84 @@
+<div class="max-w-4xl mx-auto">
+  <div class="bg-white rounded-lg shadow-lg p-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">新規スキル作成</h1>
+
+    <%= form_with(model: [:admin, @skill], local: true, class: "space-y-6") do |form| %>
+      <% if @skill.errors.any? %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+          <h2><%= pluralize(@skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+          <ul>
+            <% @skill.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form.label :name, "スキル名", class: "form-label" %>
+        <%= form.text_field :name, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :description, "説明", class: "form-label" %>
+        <%= form.text_area :description, rows: 4, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :category, "カテゴリ", class: "form-label" %>
+        <%= form.select :category, ['Backend', 'Frontend', 'Database', 'Tools', 'Creative', 'Other'], {}, class: "form-input" %>
+      </div>
+
+      <div>
+        <%= form.label :proficiency, "熟練度", class: "form-label" %>
+        <div class="flex items-center space-x-4">
+          <%= form.range_field :proficiency, min: 1, max: 5, class: "w-32" %>
+          <span class="text-lg font-medium text-gray-700">
+            <span id="proficiency-display">3</span>/5
+          </span>
+          <div class="text-yellow-500 text-lg" id="stars-display">★★★☆☆</div>
+        </div>
+        <div class="text-sm text-gray-500 mt-1">
+          1: 初心者, 2: 初級, 3: 中級, 4: 上級, 5: エキスパート
+        </div>
+      </div>
+
+      <div>
+        <%= form.label :icon, "アイコン（絵文字）", class: "form-label" %>
+        <%= form.text_field :icon, class: "form-input", placeholder: "🚀 🎨 ⚡ 🗄️ 📚 ✨" %>
+        <div class="text-sm text-gray-500 mt-1">
+          絵文字を入力してください（例：🚀、🎨、⚡など）
+        </div>
+      </div>
+
+      <div class="flex justify-end space-x-4 pt-6">
+        <%= link_to '戻る', admin_skills_path, class: "btn-secondary" %>
+        <%= form.submit "作成", class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  // 熟練度のリアルタイム表示
+  document.addEventListener('DOMContentLoaded', function() {
+    const range = document.querySelector('input[type="range"]');
+    const display = document.getElementById('proficiency-display');
+    const stars = document.getElementById('stars-display');
+    
+    if (range && display && stars) {
+      function updateDisplay() {
+        const value = range.value;
+        display.textContent = value;
+        
+        const starCount = parseInt(value);
+        const filledStars = '★'.repeat(starCount);
+        const emptyStars = '☆'.repeat(5 - starCount);
+        stars.textContent = filledStars + emptyStars;
+      }
+      
+      range.addEventListener('input', updateDisplay);
+      updateDisplay(); // 初期表示
+    }
+  });
+</script>
