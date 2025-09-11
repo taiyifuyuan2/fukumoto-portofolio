@@ -16,11 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
         initSmoothScroll();
         console.log('Smooth scroll initialized');
         
-        loadProjects();
-        console.log('Projects loaded');
-        
-        loadSkills();
-        console.log('Skills loaded');
+        // 少し遅延を追加してDOM要素の存在を確認
+        setTimeout(() => {
+            loadProjects();
+            console.log('Projects loaded');
+            
+            loadSkills();
+            console.log('Skills loaded');
+        }, 100);
         
         updateYear();
         console.log('Year updated');
@@ -263,6 +266,9 @@ function loadProjects() {
     try {
         const learningProjects = projectsData.filter(project => project.category === '学習');
         const originalProjects = projectsData.filter(project => project.category === 'オリジナル');
+        
+        console.log(`Found ${learningProjects.length} learning projects:`, learningProjects.map(p => p.title));
+        console.log(`Found ${originalProjects.length} original projects:`, originalProjects.map(p => p.title));
         
         renderProjects(learningProjects, 'learning-projects');
         renderProjects(originalProjects, 'original-projects');
