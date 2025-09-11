@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             loadSkills();
             console.log('Skills loaded');
+            
+            // プロジェクトとスキルを読み込んだ後、スクロールリビールを再初期化
+            initScrollReveal();
+            console.log('Scroll reveal re-initialized');
         }, 100);
         
         updateYear();
@@ -208,7 +212,7 @@ const projectsData = [
     "id": 6,
     "title": "FURIMA",
     "description": "商品の出品・表示・編集・削除・購入などを行うフリーマーケットアプリ。決済機能と商品管理機能を実装。",
-    "category": "学習",
+    "category": "オリジナル",
     "technologies": "Ruby on Rails, Pay.jp, ActiveStorage, PostgreSQL",
     "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80",
     "github_url": "https://github.com/taiyifuyuan2/furima",
