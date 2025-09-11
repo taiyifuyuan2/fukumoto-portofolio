@@ -160,18 +160,7 @@ const projectsData = [
     "category": "学習",
     "technologies": "Ruby on Rails, HTML, CSS, SQLite",
     "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80",
-    "github_url": "https://github.com/taiyifuyuan2/first-app",
-    "live_url": "",
-    "featured": false
-  },
-  {
-    "id": 2,
-    "title": "PicTweet",
-    "description": "CRUDを意識しGemを用いたX（Twitter）のような写真投稿アプリ。画像アップロード機能とユーザー認証を実装。",
-    "category": "学習",
-    "technologies": "Ruby on Rails, CarrierWave, Devise, Bootstrap",
-    "image_url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=400&q=80",
-    "github_url": "https://github.com/taiyifuyuan2/pic-tweet",
+    "github_url": "https://github.com/taiyifuyuan2/first_app",
     "live_url": "",
     "featured": false
   },
@@ -187,24 +176,13 @@ const projectsData = [
     "featured": false
   },
   {
-    "id": 4,
-    "title": "AjaxApp",
-    "description": "FirstAppについて非同期通信を用いたメモ投稿機能に改修したアプリ。AjaxとJavaScriptを活用したUX向上。",
-    "category": "学習",
-    "technologies": "Ruby on Rails, JavaScript, Ajax, jQuery",
-    "image_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-    "github_url": "https://github.com/taiyifuyuan2/ajax-app",
-    "live_url": "",
-    "featured": false
-  },
-  {
     "id": 5,
     "title": "ProtoSpace",
     "description": "これまでの学習の復習を兼ねたコンテンツ投稿アプリ。複雑な機能を組み合わせた総合的なアプリケーション。",
     "category": "学習",
     "technologies": "Ruby on Rails, ActiveStorage, Devise, Bootstrap",
     "image_url": "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=400&q=80",
-    "github_url": "https://github.com/taiyifuyuan2/proto-space",
+    "github_url": "https://github.com/taiyifuyuan2/protospace-46285",
     "live_url": "",
     "featured": false
   },
@@ -215,34 +193,34 @@ const projectsData = [
     "category": "オリジナル",
     "technologies": "Ruby on Rails, Pay.jp, ActiveStorage, PostgreSQL",
     "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80",
-    "github_url": "https://github.com/taiyifuyuan2/furima",
-    "live_url": "http://35.79.137.148/",
-    "featured": true
-  },
-  {
-    "id": 7,
-    "title": "FURIMA (オリジナル機能追加)",
-    "description": "FURIMAについてのオリジナル機能の追加実装。検索機能、お気に入り機能、レビュー機能を独自に開発。",
-    "category": "オリジナル",
-    "technologies": "Ruby on Rails, JavaScript, Ransack, Ajax",
-    "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80",
-    "github_url": "https://github.com/taiyifuyuan2/furima-original",
+    "github_url": "https://github.com/taiyifuyuan2/furima-46285",
     "live_url": "http://35.79.137.148/",
     "featured": true
   },
   {
     "id": 8,
     "title": "オリジナルアプリケーション (ペット健康管理)",
-    "description": "ペットの健康管理をサポートする独自開発アプリ。ワクチン記録、体重管理、健康チェック機能を実装。",
+    "description": "ペットの健康管理をサポートする独自開発アプリ。ワクチン記録、体重管理、健康チェック機能を実装。\n\n【テストアカウント】\nID: test@test.jp\nPASS: asd123",
     "category": "オリジナル",
     "technologies": "Ruby on Rails, Chart.js, ActiveStorage, PostgreSQL",
     "image_url": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=400&q=80",
-    "github_url": "https://github.com/taiyifuyuan2/pet-health-app",
+    "github_url": "https://github.com/taiyifuyuan2/pet-health2",
     "live_url": "https://pet-health2.onrender.com",
     "featured": true
   },
   {
     "id": 9,
+    "title": "TodoApp",
+    "description": "Next.js、Supabase、Drizzle ORMを使用した本格的なTodoアプリ。認証、画像添付、メール通知、Stripe決済機能を実装。",
+    "category": "オリジナル",
+    "technologies": "Next.js, TypeScript, Supabase, Drizzle ORM, Stripe",
+    "image_url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/my-todo-app",
+    "live_url": "",
+    "featured": true
+  },
+  {
+    "id": 10,
     "title": "ポートフォリオサイト",
     "description": "自身のスキルとプロジェクトを紹介するポートフォリオサイト。レスポンシブデザインとアニメーション効果を実装。",
     "category": "オリジナル",
@@ -253,7 +231,7 @@ const projectsData = [
     "featured": false
   },
   {
-    "id": 10,
+    "id": 11,
     "title": "企業ホームページ",
     "description": "企業向けのシンプルなホームページ。モダンなデザインとユーザビリティを重視した構成。",
     "category": "オリジナル",
