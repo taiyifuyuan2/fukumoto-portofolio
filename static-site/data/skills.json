@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Ruby on Rails",
+    "description": "MVCフレームワークの理解と実践的なアプリケーション開発",
+    "category": "プログラミング言語",
+    "proficiency": 4,
+    "icon": "💎"
+  },
+  {
+    "id": 2,
+    "name": "JavaScript",
+    "description": "フロントエンド開発とAjax通信の実装",
+    "category": "プログラミング言語",
+    "proficiency": 3,
+    "icon": "⚡"
+  },
+  {
+    "id": 3,
+    "name": "HTML5",
+    "description": "セマンティックなマークアップとアクセシビリティ対応",
+    "category": "マークアップ",
+    "proficiency": 4,
+    "icon": "🏗️"
+  },
+  {
+    "id": 4,
+    "name": "CSS3",
+    "description": "レスポンシブデザインとアニメーション効果の実装",
+    "category": "スタイリング",
+    "proficiency": 4,
+    "icon": "🎨"
+  },
+  {
+    "id": 5,
+    "name": "PostgreSQL",
+    "description": "データベース設計とクエリの最適化",
+    "category": "データベース",
+    "proficiency": 3,
+    "icon": "🐘"
+  },
+  {
+    "id": 6,
+    "name": "Git / GitHub",
+    "description": "バージョン管理とチーム開発でのコラボレーション",
+    "category": "ツール",
+    "proficiency": 4,
+    "icon": "📚"
+  },
+  {
+    "id": 7,
+    "name": "AWS",
+    "description": "EC2、S3、RDSを使用したクラウドインフラの構築",
+    "category": "インフラ",
+    "proficiency": 3,
+    "icon": "☁️"
+  },
+  {
+    "id": 8,
+    "name": "Excel VBA",
+    "description": "業務自動化ツールの開発と効率化の実現",
+    "category": "業務ツール",
+    "proficiency": 5,
+    "icon": "📊"
+  },
+  {
+    "id": 9,
+    "name": "Figma",
+    "description": "デザインカンプの作成とUI/UXの設計",
+    "category": "デザイン",
+    "proficiency": 4,
+    "icon": "🎯"
+  },
+  {
+    "id": 10,
+    "name": "ChatGPT / AI活用",
+    "description": "AIツールを活用した業務効率化と自動化の推進",
+    "category": "AI・自動化",
+    "proficiency": 5,
+    "icon": "🤖"
+  },
+  {
+    "id": 11,
+    "name": "営業・提案力",
+    "description": "顧客課題のヒアリングと解決策の提案",
+    "category": "ビジネススキル",
+    "proficiency": 5,
+    "icon": "💼"
+  },
+  {
+    "id": 12,
+    "name": "課題解決力",
+    "description": "現場の課題発見と技術的解決策の実装",
+    "category": "ビジネススキル",
+    "proficiency": 5,
+    "icon": "🔧"
+  }
+]
