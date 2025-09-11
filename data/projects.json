@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "FirstApp",
+    "description": "RailsのMVCフレームワークを意識したメモ投稿アプリ。基本的なCRUD操作とRailsの構造を学習。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, HTML, CSS, SQLite",
+    "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/first-app",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "PicTweet",
+    "description": "CRUDを意識しGemを用いたX（Twitter）のような写真投稿アプリ。画像アップロード機能を実装。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, CarrierWave, Bootstrap, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/pic-tweet",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "ChatApp",
+    "description": "多対多のDB設計やActiveStorageによる画像投稿機能を備えたSlackのようなチャットアプリ。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, ActiveStorage, JavaScript, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/chat-app",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "AjaxApp",
+    "description": "FirstAppについて非同期通信を用いたメモ投稿機能に改修したアプリ。Ajaxの実装を学習。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, Ajax, JavaScript, jQuery",
+    "image_url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/ajax-app",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "ProtoSpace",
+    "description": "これまでの学習の復習を兼ねたコンテンツ投稿アプリ。総合的なRailsスキルの確認。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, Devise, Bootstrap, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/proto-space",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "FURIMA",
+    "description": "商品の出品・表示・編集・削除・購入などを行うフリーマーケットアプリ。決済機能も実装。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, Pay.jp, AWS S3, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/furima",
+    "live_url": "http://35.79.137.148/",
+    "featured": true
+  },
+  {
+    "id": 7,
+    "title": "FURIMA オリジナル機能",
+    "description": "FURIMAアプリに独自の機能を追加実装。検索機能の強化とユーザビリティの向上を図った。",
+    "category": "オリジナル",
+    "technologies": "Ruby on Rails, JavaScript, Ransack, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/furima-original",
+    "live_url": "http://35.79.137.148/",
+    "featured": true
+  },
+  {
+    "id": 8,
+    "title": "ペット健康管理アプリ",
+    "description": "ペットの健康状態を記録・管理するオリジナルアプリ。ワクチン接種や健康診断のスケジュール管理機能を実装。",
+    "category": "オリジナル",
+    "technologies": "Ruby on Rails, JavaScript, Chart.js, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/pet-health",
+    "live_url": "https://pet-health2.onrender.com",
+    "featured": true
+  },
+  {
+    "id": 9,
+    "title": "ポートフォリオサイト",
+    "description": "現在のポートフォリオサイト。ダークファンタジーのテーマで統一されたデザインとアニメーション効果を実装。",
+    "category": "オリジナル",
+    "technologies": "HTML5, CSS3, JavaScript, Canvas API",
+    "image_url": "https://images.unsplash.com/photo-1506905925346-14b8e4e4b6c0?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/portfolio",
+    "live_url": "https://fukumoto-portofolio-git-main-taiyifuyuan2-gmailcoms-projects.vercel.app/",
+    "featured": true
+  },
+  {
+    "id": 10,
+    "title": "企業ホームページ",
+    "description": "企業向けのレスポンシブなホームページ。モダンなデザインとユーザビリティを重視した構成。",
+    "category": "オリジナル",
+    "technologies": "HTML5, CSS3, JavaScript, Bootstrap",
+    "image_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/company-website",
+    "live_url": "https://elegant-stroopwafel-d00153.netlify.app/",
+    "featured": true
+  }
+]

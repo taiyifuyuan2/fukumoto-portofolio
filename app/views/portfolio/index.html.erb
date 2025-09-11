@@ -36,31 +36,90 @@
 
   <section id="prologue" class="section container" data-reveal>
     <h2>📜 Prologue</h2>
-    <p class="lead">営業 × 顧客理解を基盤に、Rails/JSで<strong>世界観のあるUI</strong>を設計・実装。<br/>「伝える力 × 作る力」で、最短で価値に到達するプロトタイプを作ります。</p>
+    <div class="prologue-content">
+      <p class="lead">営業からエンジニアへ。顧客課題の「見える化」と解決策の実装で、<strong>事業成長に直結する価値</strong>を創造します。</p>
+      
+      <div class="story-grid">
+        <div class="story-card">
+          <h3>🏢 営業時代の実績</h3>
+          <ul>
+            <li>月間売上目標達成率<strong>110%</strong>（新規売上比率100%）</li>
+            <li>AIツール導入でチーム残業時間<strong>30%削減</strong></li>
+            <li>Excel VBAによる業務自動化ツール開発</li>
+            <li>Figmaを活用したデザインカンプ作成</li>
+          </ul>
+        </div>
+        
+        <div class="story-card">
+          <h3>💻 エンジニアへの転身</h3>
+          <ul>
+            <li>テックキャンプで<strong>Ruby on Rails</strong>を習得</li>
+            <li><strong>10個のアプリケーション</strong>を開発・デプロイ</li>
+            <li>フリーマーケットアプリの<strong>オリジナル機能</strong>実装</li>
+            <li>ペット健康管理アプリの<strong>独自開発</strong></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="philosophy">
+        <h3>🎯 私のアプローチ</h3>
+        <p>「現場の課題発見力」×「技術的解決力」で、利用者目線の使いやすいシステムを構築。営業で培った顧客理解力と、プログラミングで身につけた実装力を組み合わせ、事業の成長に直接貢献できるエンジニアを目指しています。</p>
+      </div>
+    </div>
   </section>
 
   <section id="projects" class="section container">
     <h2>🏰 Projects</h2>
-    <p class="lead">学習アウトプットを中心に、Railsとフロントの基礎を鍛えた<%= Project.count %>作。</p>
-    <div class="grid">
-      <% Project.all.each do |project| %>
-        <article class="card" data-reveal>
-          <div class="thumb" style="background-image:url('<%= project.image_url %>')"></div>
-          <div class="content">
-            <span class="tag"><%= project.category %> / <%= project.technologies_array.first %></span>
-            <div class="title"><%= project.title %></div>
-            <p class="meta"><%= project.description %></p>
-            <div class="actions">
-              <% if project.github_url.present? %>
-                <a class="btn" href="<%= project.github_url %>" target="_blank" rel="noopener">GitHub</a>
-              <% end %>
-              <% if project.live_url.present? %>
-                <a class="btn" href="<%= project.live_url %>" target="_blank" rel="noopener">Live</a>
-              <% end %>
-            </div>
-          </div>
-        </article>
-      <% end %>
+    <p class="lead">テックキャンプでの学習成果とオリジナル開発を通じて、<strong>実践的な開発スキル</strong>を習得した10作品。</p>
+    
+    <div class="project-categories">
+      <div class="category-section">
+        <h3>📚 学習プロジェクト</h3>
+        <div class="grid">
+          <% Project.where(category: '学習').each do |project| %>
+            <article class="card" data-reveal>
+              <div class="thumb" style="background-image:url('<%= project.image_url %>')"></div>
+              <div class="content">
+                <span class="tag"><%= project.category %> / <%= project.technologies_array.first %></span>
+                <div class="title"><%= project.title %></div>
+                <p class="meta"><%= project.description %></p>
+                <div class="actions">
+                  <% if project.github_url.present? %>
+                    <a class="btn" href="<%= project.github_url %>" target="_blank" rel="noopener">GitHub</a>
+                  <% end %>
+                  <% if project.live_url.present? %>
+                    <a class="btn" href="<%= project.live_url %>" target="_blank" rel="noopener">Live</a>
+                  <% end %>
+                </div>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="category-section">
+        <h3>🚀 オリジナル開発</h3>
+        <div class="grid">
+          <% Project.where(category: 'オリジナル').each do |project| %>
+            <article class="card featured" data-reveal>
+              <div class="thumb" style="background-image:url('<%= project.image_url %>')"></div>
+              <div class="content">
+                <span class="tag featured-tag"><%= project.category %> / <%= project.technologies_array.first %></span>
+                <div class="title"><%= project.title %></div>
+                <p class="meta"><%= project.description %></p>
+                <div class="actions">
+                  <% if project.github_url.present? %>
+                    <a class="btn" href="<%= project.github_url %>" target="_blank" rel="noopener">GitHub</a>
+                  <% end %>
+                  <% if project.live_url.present? %>
+                    <a class="btn primary" href="<%= project.live_url %>" target="_blank" rel="noopener">Live</a>
+                  <% end %>
+                </div>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      </div>
     </div>
   </section>
 

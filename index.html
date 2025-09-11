@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Grimoire — 福元太一のポートフォリオ</title>
+    <meta name="description" content="営業からエンジニアへ。ダークファンタジーの世界観で紡ぐ福元太一のポートフォリオ。">
+    <link rel="canonical" href="https://fukumoto-portofolio.vercel.app/">
+    <meta property="og:title" content="Code Grimoire — 福元太一">
+    <meta property="og:description" content="ダークファンタジーの世界観で紡ぐポートフォリオ。Rails / JavaScript / MySQL / Design">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fukumoto-portofolio.vercel.app/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0b0b12">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main" class="skip" style="position:absolute;left:-9999px;top:auto"><span>本文へスキップ</span></a>
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <nav class="nav" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav-inner">
+            <div class="brand">Code <span>Grimoire</span></div>
+            <div class="spacer"></div>
+            <a href="#prologue">Prologue</a>
+            <a href="#projects">Projects</a>
+            <a href="#arsenal">Arsenal</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="hero hero--impact">
+            <div class="bg" aria-hidden="true"></div>
+            <div class="portal" aria-hidden="true">
+                <span class="ring"></span>
+                <span class="glow"></span>
+            </div>
+            <div class="inner container" data-reveal>
+                <h1><span class="em">闇に鍛える物語</span><br/>福元太一のポートフォリオ</h1>
+                <p id="typewriter" data-text="営業という人の世界から、コードという魔導の世界へ。ダークファンタジーの扉を開く作品群をお届けします。"></p>
+                <div class="cta">
+                    <a class="btn primary" href="#projects">作品を見る</a>
+                    <a class="btn" href="#contact">連絡する</a>
+                </div>
+            </div>
+            <div class="scroll" aria-hidden="true">
+                <div class="mouse"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <section id="prologue" class="section container" data-reveal>
+            <h2>📜 Prologue</h2>
+            <div class="prologue-content">
+                <p class="lead">営業からエンジニアへ。顧客課題の「見える化」と解決策の実装で、<strong>事業成長に直結する価値</strong>を創造します。</p>
+                
+                <div class="story-grid">
+                    <div class="story-card">
+                        <h3>🏢 営業時代の実績</h3>
+                        <ul>
+                            <li>月間売上目標達成率<strong>110%</strong>（新規売上比率100%）</li>
+                            <li>AIツール導入でチーム残業時間<strong>30%削減</strong></li>
+                            <li>Excel VBAによる業務自動化ツール開発</li>
+                            <li>Figmaを活用したデザインカンプ作成</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="story-card">
+                        <h3>💻 エンジニアへの転身</h3>
+                        <ul>
+                            <li>テックキャンプで<strong>Ruby on Rails</strong>を習得</li>
+                            <li><strong>10個のアプリケーション</strong>を開発・デプロイ</li>
+                            <li>フリーマーケットアプリの<strong>オリジナル機能</strong>実装</li>
+                            <li>ペット健康管理アプリの<strong>独自開発</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="philosophy">
+                    <h3>🎯 私のアプローチ</h3>
+                    <p>「現場の課題発見力」×「技術的解決力」で、利用者目線の使いやすいシステムを構築。営業で培った顧客理解力と、プログラミングで身につけた実装力を組み合わせ、事業の成長に直接貢献できるエンジニアを目指しています。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section container">
+            <h2>🏰 Projects</h2>
+            <p class="lead">テックキャンプでの学習成果とオリジナル開発を通じて、<strong>実践的な開発スキル</strong>を習得した10作品。</p>
+            
+            <div class="project-categories">
+                <div class="category-section">
+                    <h3>📚 学習プロジェクト</h3>
+                    <div class="grid" id="learning-projects">
+                        <!-- 学習プロジェクトがここに動的に挿入されます -->
+                    </div>
+                </div>
+                
+                <div class="category-section">
+                    <h3>🚀 オリジナル開発</h3>
+                    <div class="grid" id="original-projects">
+                        <!-- オリジナルプロジェクトがここに動的に挿入されます -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="arsenal" class="section container">
+            <h2>⚔️ Arsenal</h2>
+            <div class="skills" data-reveal id="skills-container">
+                <!-- スキルがここに動的に挿入されます -->
+            </div>
+        </section>
+
+        <section id="contact" class="section container" data-reveal>
+            <h2>🕯 Contact</h2>
+            <p class="lead">旅路の仲間を募集中です。気軽に声をかけてください。</p>
+            <div class="skills">
+                <div class="skill">
+                    <strong>Mail</strong> <a href="mailto:taiyifuyuan2@gmail.com">taiyifuyuan2@gmail.com</a>
+                </div>
+                <div class="skill">
+                    <strong>GitHub</strong> <a href="https://github.com/taiyifuyuan2" target="_blank" rel="noopener">github.com/taiyifuyuan2</a>
+                </div>
+                <div class="skill">
+                    <strong>X</strong> <a href="https://x.com/i_nv99" target="_blank" rel="noopener">@i_nv99</a>
+                </div>
+                <div class="skill">
+                    <strong>Note</strong> <a href="https://note.com/human_quoll6139" target="_blank" rel="noopener">note.com/human_quoll6139</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="container">© <span id="year"></span> 福元太一. Forged in the dark.</footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
