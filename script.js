@@ -1,13 +1,34 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initStarfield();
-    initTypewriter();
-    initScrollReveal();
-    initSmoothScroll();
-    loadProjects();
-    loadSkills();
-    updateYear();
+    console.log('DOM Content Loaded - Initializing components...');
+    
+    try {
+        // Initialize all components
+        initStarfield();
+        console.log('Starfield initialized');
+        
+        initTypewriter();
+        console.log('Typewriter initialized');
+        
+        initScrollReveal();
+        console.log('Scroll reveal initialized');
+        
+        initSmoothScroll();
+        console.log('Smooth scroll initialized');
+        
+        loadProjects();
+        console.log('Projects loaded');
+        
+        loadSkills();
+        console.log('Skills loaded');
+        
+        updateYear();
+        console.log('Year updated');
+        
+        console.log('All components initialized successfully');
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
 });
 
 // Starfield Animation
@@ -252,11 +273,22 @@ function loadProjects() {
 
 // Render Projects
 function renderProjects(projects, containerId) {
+    console.log(`Rendering ${projects.length} projects in container: ${containerId}`);
     const container = document.getElementById(containerId);
     
-    projects.forEach(project => {
-        const projectCard = createProjectCard(project);
-        container.appendChild(projectCard);
+    if (!container) {
+        console.error(`Container with id '${containerId}' not found`);
+        return;
+    }
+    
+    projects.forEach((project, index) => {
+        try {
+            const projectCard = createProjectCard(project);
+            container.appendChild(projectCard);
+            console.log(`Project ${index + 1} rendered: ${project.title}`);
+        } catch (error) {
+            console.error(`Error rendering project ${index + 1}:`, error);
+        }
     });
 }
 
@@ -388,11 +420,22 @@ function loadSkills() {
 
 // Render Skills
 function renderSkills(skills) {
+    console.log(`Rendering ${skills.length} skills`);
     const container = document.getElementById('skills-container');
     
-    skills.forEach(skill => {
-        const skillElement = createSkillElement(skill);
-        container.appendChild(skillElement);
+    if (!container) {
+        console.error('Container with id "skills-container" not found');
+        return;
+    }
+    
+    skills.forEach((skill, index) => {
+        try {
+            const skillElement = createSkillElement(skill);
+            container.appendChild(skillElement);
+            console.log(`Skill ${index + 1} rendered: ${skill.name}`);
+        } catch (error) {
+            console.error(`Error rendering skill ${index + 1}:`, error);
+        }
     });
 }
 
