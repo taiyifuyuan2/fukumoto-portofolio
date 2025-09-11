@@ -123,14 +123,125 @@ function initSmoothScroll() {
     });
 }
 
+// Projects Data (embedded)
+const projectsData = [
+  {
+    "id": 1,
+    "title": "FirstApp",
+    "description": "RailsのMVCフレームワークを意識したメモ投稿アプリ。基本的なCRUD操作とRailsの構造を学習。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, HTML, CSS, SQLite",
+    "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/first-app",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "PicTweet",
+    "description": "CRUDを意識しGemを用いたX（Twitter）のような写真投稿アプリ。画像アップロード機能とユーザー認証を実装。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, CarrierWave, Devise, Bootstrap",
+    "image_url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/pic-tweet",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "ChatApp",
+    "description": "多対多のDB設計やActiveStorageによる画像投稿機能を備えたSlackのようなチャットアプリ。リアルタイム通信機能を実装。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, ActionCable, ActiveStorage, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/chat-app",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "AjaxApp",
+    "description": "FirstAppについて非同期通信を用いたメモ投稿機能に改修したアプリ。AjaxとJavaScriptを活用したUX向上。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, JavaScript, Ajax, jQuery",
+    "image_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/ajax-app",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "ProtoSpace",
+    "description": "これまでの学習の復習を兼ねたコンテンツ投稿アプリ。複雑な機能を組み合わせた総合的なアプリケーション。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, ActiveStorage, Devise, Bootstrap",
+    "image_url": "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/proto-space",
+    "live_url": "",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "FURIMA",
+    "description": "商品の出品・表示・編集・削除・購入などを行うフリーマーケットアプリ。決済機能と商品管理機能を実装。",
+    "category": "学習",
+    "technologies": "Ruby on Rails, Pay.jp, ActiveStorage, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/furima",
+    "live_url": "http://35.79.137.148/",
+    "featured": true
+  },
+  {
+    "id": 7,
+    "title": "FURIMA (オリジナル機能追加)",
+    "description": "FURIMAについてのオリジナル機能の追加実装。検索機能、お気に入り機能、レビュー機能を独自に開発。",
+    "category": "オリジナル",
+    "technologies": "Ruby on Rails, JavaScript, Ransack, Ajax",
+    "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/furima-original",
+    "live_url": "http://35.79.137.148/",
+    "featured": true
+  },
+  {
+    "id": 8,
+    "title": "オリジナルアプリケーション (ペット健康管理)",
+    "description": "ペットの健康管理をサポートする独自開発アプリ。ワクチン記録、体重管理、健康チェック機能を実装。",
+    "category": "オリジナル",
+    "technologies": "Ruby on Rails, Chart.js, ActiveStorage, PostgreSQL",
+    "image_url": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/pet-health-app",
+    "live_url": "https://pet-health2.onrender.com",
+    "featured": true
+  },
+  {
+    "id": 9,
+    "title": "ポートフォリオサイト",
+    "description": "自身のスキルとプロジェクトを紹介するポートフォリオサイト。レスポンシブデザインとアニメーション効果を実装。",
+    "category": "オリジナル",
+    "technologies": "HTML, CSS, JavaScript, Vercel",
+    "image_url": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/fukumoto-portofolio",
+    "live_url": "https://fukumoto-portofolio-eu8deoezj-taiyifuyuan2-gmailcoms-projects.vercel.app/",
+    "featured": false
+  },
+  {
+    "id": 10,
+    "title": "企業ホームページ",
+    "description": "企業向けのシンプルなホームページ。モダンなデザインとユーザビリティを重視した構成。",
+    "category": "オリジナル",
+    "technologies": "HTML, CSS, JavaScript, Netlify",
+    "image_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
+    "github_url": "https://github.com/taiyifuyuan2/company-website",
+    "live_url": "https://elegant-stroopwafel-d00153.netlify.app/",
+    "featured": false
+  }
+];
+
 // Load Projects Data
-async function loadProjects() {
+function loadProjects() {
     try {
-        const response = await fetch('data/projects.json');
-        const projects = await response.json();
-        
-        const learningProjects = projects.filter(project => project.category === '学習');
-        const originalProjects = projects.filter(project => project.category === 'オリジナル');
+        const learningProjects = projectsData.filter(project => project.category === '学習');
+        const originalProjects = projectsData.filter(project => project.category === 'オリジナル');
         
         renderProjects(learningProjects, 'learning-projects');
         renderProjects(originalProjects, 'original-projects');
@@ -174,13 +285,102 @@ function createProjectCard(project) {
     return card;
 }
 
+// Skills Data (embedded)
+const skillsData = [
+  {
+    "id": 1,
+    "name": "Ruby on Rails",
+    "description": "MVCフレームワークの理解と実践的なアプリケーション開発",
+    "category": "バックエンド",
+    "proficiency": 4,
+    "icon": "💎"
+  },
+  {
+    "id": 2,
+    "name": "HTML/CSS",
+    "description": "セマンティックなHTMLとモダンなCSS設計（BEM, FLOCSS）",
+    "category": "フロントエンド",
+    "proficiency": 4,
+    "icon": "🌐"
+  },
+  {
+    "id": 3,
+    "name": "JavaScript",
+    "description": "DOM操作、イベント処理、非同期処理の基礎",
+    "category": "フロントエンド",
+    "proficiency": 3,
+    "icon": "💡"
+  },
+  {
+    "id": 4,
+    "name": "Git/GitHub",
+    "description": "バージョン管理、プルリクエスト、ブランチ戦略",
+    "category": "ツール・その他",
+    "proficiency": 4,
+    "icon": "🐙"
+  },
+  {
+    "id": 5,
+    "name": "SQL (PostgreSQL)",
+    "description": "基本的なクエリ操作、DB設計",
+    "category": "バックエンド",
+    "proficiency": 3,
+    "icon": "🐘"
+  },
+  {
+    "id": 6,
+    "name": "Figma",
+    "description": "デザインカンプ作成、プロトタイピング",
+    "category": "ツール・その他",
+    "proficiency": 3,
+    "icon": "🎨"
+  },
+  {
+    "id": 7,
+    "name": "Excel VBA",
+    "description": "業務自動化ツールの開発",
+    "category": "ツール・その他",
+    "proficiency": 4,
+    "icon": "📊"
+  },
+  {
+    "id": 8,
+    "name": "ChatGPT/Genspark",
+    "description": "AIツールを活用した業務効率化、提案資料作成、ナレッジ共有",
+    "category": "ツール・その他",
+    "proficiency": 4,
+    "icon": "🤖"
+  },
+  {
+    "id": 9,
+    "name": "法人営業",
+    "description": "中小企業・医療法人向けIT/OA機器、ホームページ制作の提案。顧客課題の可視化と解決提案。",
+    "category": "ツール・その他",
+    "proficiency": 5,
+    "icon": "🤝"
+  },
+  {
+    "id": 10,
+    "name": "課題発見・解決力",
+    "description": "業務フロー分析、本質的な課題特定、仕組みによる解決策構築・実行",
+    "category": "ツール・その他",
+    "proficiency": 5,
+    "icon": "🔍"
+  },
+  {
+    "id": 11,
+    "name": "プロジェクトマネジメント",
+    "description": "新規開拓から導入、アフターフォローまで一貫した担当",
+    "category": "ツール・その他",
+    "proficiency": 4,
+    "icon": "🗓️"
+  }
+];
+
 // Load Skills Data
-async function loadSkills() {
+function loadSkills() {
     try {
-        const response = await fetch('data/skills.json');
-        const skills = await response.json();
-        
-        renderSkills(skills);
+        renderSkills(skillsData);
     } catch (error) {
         console.error('Error loading skills:', error);
     }
